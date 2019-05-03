@@ -1,14 +1,16 @@
-# PathReporter
+# SharedProcessors
+
+## PathReporter
 
 Reports environment paths for current process context. This processor is for troubleshooting purposes only and should not be used by anyone.
 
-## Input variables
+### Input variables
 
-## Output variables
+### Output variables
 
 - `path_report`: Contents of `$PATH`.
 
-## Example output
+### Example output
 
 ```xml
 <key>Output</key>
