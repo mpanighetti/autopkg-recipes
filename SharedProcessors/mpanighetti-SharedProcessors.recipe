@@ -3,7 +3,7 @@
 <plist version="1.0">
 <dict>
   <key>Description</key>
-  <string>DThis is a stub recipe that can be used as a reference when referring to shared processors in this directory.</string>
+  <string>This is a stub recipe that can be used as a reference when referring to shared processors in this directory.</string>
   <key>Identifier</key>
   <string>com.github.mpanighetti.SharedProcessors</string>
   <key>Input</key>
