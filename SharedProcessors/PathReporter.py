@@ -25,7 +25,7 @@ __all__ = ["PathReporter"]
 
 
 class PathReporter(Processor):
-    """Reports environment paths for current process context. This processor is for troubleshooting purposes only and should not be used by anyone."""
+    """This AutoPkg shared processor reports environment paths for current process context. This processor is for troubleshooting purposes only and should not be used in production recipes."""
     input_variables = {
     }
     output_variables = {
