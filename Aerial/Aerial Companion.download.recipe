@@ -2,8 +2,8 @@
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
 <dict>
-  <key>Comment</key>
-  <string>Copyright 2024 Mario Panighetti.
+	<key>Comment</key>
+	<string>Copyright 2024 Mario Panighetti.
 
 Licensed under the Apache License, Version 2.0 (the "License");
 you may not use this file except in compliance with the License.
@@ -16,68 +16,79 @@ distributed under the License is distributed on an "AS IS" BASIS,
 WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
 See the License for the specific language governing permissions and
 limitations under the License.</string>
-  <key>Description</key>
-  <string>Downloads the latest version of Aerial Companion from the vendor.</string>
-  <key>Identifier</key>
-  <string>com.github.mpanighetti.download.Aerial Companion</string>
-  <key>Input</key>
-  <dict>
-    <key>NAME</key>
-    <string>Aerial Companion</string>
-    <key>REPOSITORY</key>
-    <string>AerialScreensaver/AerialCompanion</string>
-  </dict>
-  <key>MinimumVersion</key>
-  <string>0.5.0</string>
-  <key>Process</key>
-  <array>
-    <dict>
-      <key>Arguments</key>
-      <dict>
-        <key>asset_regex</key>
-        <string>Aerial\.Companion\.zip</string>
-        <key>github_repo</key>
-        <string>%REPOSITORY%</string>
-      </dict>
-      <key>Comment</key>
-      <string>GitHubReleasesInfoProvider processor run obtains the latest release download URL.</string>
-      <key>Processor</key>
-      <string>GitHubReleasesInfoProvider</string>
-    </dict>
-    <dict>
-      <key>Comment</key>
-      <string>URLDownloader processor to download the app using the download URL obtained from GitHubReleasesInfoProvider.</string>
-      <key>Processor</key>
-      <string>URLDownloader</string>
-    </dict>
-    <dict>
-      <key>Arguments</key>
-        <dict>
-          <key>destination_path</key>
-          <string>%RECIPE_CACHE_DIR%/unzip</string>
-          <key>purge_destination</key>
-          <true/>
-        </dict>
-      <key>Comment</key>
-      <string>Unarchiver processor unzips the downloaded resource.</string>
-      <key>Processor</key>
-      <string>Unarchiver</string>
-    </dict>
-    <dict>
-      <key>Arguments</key>
-        <dict>
-          <key>source_app</key>
-          <string>%destination_path%/Aerial Companion.app</string>
-        </dict>
-      <key>Comment</key>
-      <string>AppIconExtractor processor exports icon image file from application bundle.</string>
-      <key>Processor</key>
-      <string>com.github.haircut.processors/AppIconExtractor</string>
-    </dict>
-    <dict>
-      <key>Processor</key>
-      <string>EndOfCheckPhase</string>
-    </dict>
-  </array>
+	<key>Description</key>
+	<string>Downloads the latest version of Aerial Companion from the vendor.</string>
+	<key>Identifier</key>
+	<string>com.github.mpanighetti.download.Aerial Companion</string>
+	<key>Input</key>
+	<dict>
+		<key>NAME</key>
+		<string>Aerial Companion</string>
+		<key>REPOSITORY</key>
+		<string>AerialScreensaver/AerialCompanion</string>
+	</dict>
+	<key>MinimumVersion</key>
+	<string>0.5.0</string>
+	<key>Process</key>
+	<array>
+		<dict>
+			<key>Arguments</key>
+			<dict>
+				<key>asset_regex</key>
+				<string>Aerial\.Companion\.zip</string>
+				<key>github_repo</key>
+				<string>%REPOSITORY%</string>
+			</dict>
+			<key>Comment</key>
+			<string>GitHubReleasesInfoProvider processor run obtains the latest release download URL.</string>
+			<key>Processor</key>
+			<string>GitHubReleasesInfoProvider</string>
+		</dict>
+		<dict>
+			<key>Comment</key>
+			<string>URLDownloader processor to download the app using the download URL obtained from GitHubReleasesInfoProvider.</string>
+			<key>Processor</key>
+			<string>URLDownloader</string>
+		</dict>
+		<dict>
+			<key>Arguments</key>
+			<dict>
+				<key>destination_path</key>
+				<string>%RECIPE_CACHE_DIR%/unzip</string>
+				<key>purge_destination</key>
+				<true/>
+			</dict>
+			<key>Comment</key>
+			<string>Unarchiver processor unzips the downloaded resource.</string>
+			<key>Processor</key>
+			<string>Unarchiver</string>
+		</dict>
+		<dict>
+			<key>Arguments</key>
+			<dict>
+				<key>input_path</key>
+				<string>%destination_path%/Aerial Companion.app</string>
+				<key>requirement</key>
+				<string>anchor apple generic and identifier "com.glouel.AerialUpdater" and (certificate leaf[field.1.2.840.113635.100.6.1.9] /* exists */ or certificate 1[field.1.2.840.113635.100.6.2.6] /* exists */ and certificate leaf[field.1.2.840.113635.100.6.1.13] /* exists */ and certificate leaf[subject.OU] = "3L54M5L5KK")</string>
+			</dict>
+			<key>Processor</key>
+			<string>CodeSignatureVerifier</string>
+		</dict>
+		<dict>
+			<key>Processor</key>
+			<string>EndOfCheckPhase</string>
+		</dict>
+		<dict>
+			<key>Arguments</key>
+			<dict>
+				<key>source_app</key>
+				<string>%input_path%</string>
+			</dict>
+			<key>Comment</key>
+			<string>AppIconExtractor processor exports icon image file from application bundle.</string>
+			<key>Processor</key>
+			<string>com.github.haircut.processors/AppIconExtractor</string>
+		</dict>
+	</array>
 </dict>
 </plist>
