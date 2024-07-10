@@ -2,8 +2,8 @@
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
 <dict>
-  <key>Comment</key>
-  <string>Copyright 2024 Mario Panighetti.
+	<key>Comment</key>
+	<string>Copyright 2024 Mario Panighetti.
 
 Licensed under the Apache License, Version 2.0 (the "License");
 you may not use this file except in compliance with the License.
@@ -16,31 +16,31 @@ distributed under the License is distributed on an "AS IS" BASIS,
 WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
 See the License for the specific language governing permissions and
 limitations under the License.</string>
-  <key>Description</key>
-  <string>Downloads the latest version of Aerial Companion from the vendor, then creates an installer package.</string>
-  <key>Identifier</key>
-  <string>com.github.mpanighetti.pkg.Aerial Companion</string>
-  <key>Input</key>
-  <dict/>
-  <key>MinimumVersion</key>
-  <string>0.5.0</string>
-  <key>ParentRecipe</key>
-  <string>com.github.mpanighetti.download.Aerial Companion</string>
-  <key>Process</key>
-  <array>
-    <dict>
-      <key>Arguments</key>
-        <dict>
-          <key>app_path</key>
-          <string>%source_app%</string>
-          <key>purge_destination</key>
-          <true/>
-        </dict>
-      <key>Comment</key>
-      <string>AppPkgCreator processor run builds an installer package for the unzipped application.</string>
-      <key>Processor</key>
-      <string>AppPkgCreator</string>
-    </dict>
-  </array>
+	<key>Description</key>
+	<string>Downloads the latest version of Aerial Companion from the vendor, then creates an installer package.</string>
+	<key>Identifier</key>
+	<string>com.github.mpanighetti.pkg.Aerial Companion</string>
+	<key>Input</key>
+	<dict/>
+	<key>MinimumVersion</key>
+	<string>0.5.0</string>
+	<key>ParentRecipe</key>
+	<string>com.github.mpanighetti.download.Aerial Companion</string>
+	<key>Process</key>
+	<array>
+		<dict>
+			<key>Arguments</key>
+			<dict>
+				<key>app_path</key>
+				<string>%input_path%</string>
+				<key>purge_destination</key>
+				<true/>
+			</dict>
+			<key>Comment</key>
+			<string>AppPkgCreator processor run builds an installer package for the unzipped application.</string>
+			<key>Processor</key>
+			<string>AppPkgCreator</string>
+		</dict>
+	</array>
 </dict>
 </plist>
