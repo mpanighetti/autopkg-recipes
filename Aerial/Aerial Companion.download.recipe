@@ -54,7 +54,7 @@ limitations under the License.</string>
 			<key>Arguments</key>
 			<dict>
 				<key>destination_path</key>
-				<string>%RECIPE_CACHE_DIR%/unzip</string>
+				<string>%RECIPE_CACHE_DIR%/Unarchiver</string>
 				<key>purge_destination</key>
 				<true/>
 			</dict>
@@ -77,17 +77,6 @@ limitations under the License.</string>
 		<dict>
 			<key>Processor</key>
 			<string>EndOfCheckPhase</string>
-		</dict>
-		<dict>
-			<key>Arguments</key>
-			<dict>
-				<key>source_app</key>
-				<string>%input_path%</string>
-			</dict>
-			<key>Comment</key>
-			<string>AppIconExtractor processor exports icon image file from application bundle.</string>
-			<key>Processor</key>
-			<string>com.github.haircut.processors/AppIconExtractor</string>
 		</dict>
 	</array>
 </dict>

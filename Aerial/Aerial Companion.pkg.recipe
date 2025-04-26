@@ -31,8 +31,19 @@ limitations under the License.</string>
 		<dict>
 			<key>Arguments</key>
 			<dict>
-				<key>app_path</key>
+				<key>source_app</key>
 				<string>%input_path%</string>
+			</dict>
+			<key>Comment</key>
+			<string>AppIconExtractor processor exports icon image file from application bundle.</string>
+			<key>Processor</key>
+			<string>com.github.haircut.processors/AppIconExtractor</string>
+		</dict>
+		<dict>
+			<key>Arguments</key>
+			<dict>
+				<key>app_path</key>
+				<string>%source_app%</string>
 				<key>purge_destination</key>
 				<true/>
 			</dict>
@@ -40,6 +51,19 @@ limitations under the License.</string>
 			<string>AppPkgCreator processor run builds an installer package for the unzipped application.</string>
 			<key>Processor</key>
 			<string>AppPkgCreator</string>
+		</dict>
+		<dict>
+			<key>Arguments</key>
+			<dict>
+				<key>path_list</key>
+				<array>
+					<string>%RECIPE_CACHE_DIR%/Unarchiver</string>
+				</array>
+			</dict>
+			<key>Comment</key>
+			<string>PathDeleter processor run to clean up temp resources.</string>
+			<key>Processor</key>
+			<string>PathDeleter</string>
 		</dict>
 	</array>
 </dict>
