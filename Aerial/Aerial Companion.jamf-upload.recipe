@@ -19,7 +19,7 @@ limitations under the License.</string>
 	<key>Description</key>
 	<string>Downloads the latest version of Aerial Companion from the vendor, creates an installer package, uploads it to Jamf Pro, then adds it to a Self Service policy.</string>
 	<key>Identifier</key>
-	<string>com.github.mpanighetti.jamf.Aerial Companion</string>
+	<string>com.github.mpanighetti.jamf-upload.Aerial Companion</string>
 	<key>Input</key>
 	<dict>
 		<key>PACKAGE_CATEGORY</key>
@@ -71,25 +71,6 @@ limitations under the License.</string>
 			<string>StopProcessingIf processor ends the recipe early if the downloaded application version already exists in Jamf Pro.</string>
 			<key>Processor</key>
 			<string>StopProcessingIf</string>
-		</dict>
-		<dict>
-			<key>Arguments</key>
-			<dict>
-				<key>icon</key>
-				<string>%app_icon_path%</string>
-				<key>policy_name</key>
-				<string>%SELF_SERVICE_POLICY_NAME%</string>
-				<key>policy_template</key>
-				<string>%SELF_SERVICE_POLICY_TEMPLATE%</string>
-				<key>replace_icon</key>
-				<true/>
-				<key>replace_policy</key>
-				<true/>
-			</dict>
-			<key>Comment</key>
-			<string>JamfPolicyUploader processor creates the Self Service policy in Jamf Pro.</string>
-			<key>Processor</key>
-			<string>com.github.grahampugh.jamf-upload.processors/JamfPolicyUploader</string>
 		</dict>
 	</array>
 </dict>
